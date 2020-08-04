@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title data-i18n="page-title">MGP Daily Contributions Lookup Tool</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="terminal">
+    <header class="container">
+        <div class="terminal-nav">
+            <div class="terminal-logo">
+                <div class="logo terminal-prompt" data-i18n="title">title</div>
+            </div>
+            <div class="terminal-menu">
+                <ul>
+                    <li>by User:Leranjun</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <form>
+                <fieldset>
+                    <legend data-i18n="form-title">form-title</legend>
+                    <div class="form-group">
+                        <label for="query-start-time">
+                            <span data-i18n="start-time">start-time</span> (YYYY-MM-DD hh:mm:ss <span data-i18n="local-time">local-time</span>)
+                        </label>
+                        <input id="query-start-time" type="text" required pattern="(19|20)\d\d-(0[1-9]|1[0-2])-([0-2]\d|3[0-1]) ([0-1]\d|2[1-3]):[0-5]\d:[0-5]\d" />
+                    </div>
+                    <div class="form-group">
+                        <label for="query-end-time">
+                            <span data-i18n="end-time">end-time</span> (YYYY-MM-DD hh:mm:ss <span data-i18n="local-time">local-time</span>)
+                        </label>
+                        <input id="query-end-time" type="text" required pattern="(19|20)\d\d-(0[1-9]|1[0-2])-([0-2]\d|3[0-1]) ([0-1]\d|2[1-3]):[0-5]\d:[0-5]\d" />
+                    </div>
+                    <div class="form-group">
+                        <label for="query-username" data-i18n="username">username</label>
+                        <input id="query-username" type="text" required value="Leranjun" />
+                    </div>
+                    <div class="form-group">
+                        <input id="query-h" type="checkbox" checked />
+                        <label for="query-h" data-i18n="h">h</label>
+                    </div>
+                    <div class="form-group">
+                        <button id="submit" class="btn btn-default btn-ghost" type="button"><span data-i18n="submit">submit</span></button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="count">
+            <ul id="site-list">
+                <li><span data-i18n="count-zh">count-zh</span><span id="count-zh"></span></li>
+                <li><span data-i18n="count-en">count-en</span><span id="count-en"></span></li>
+                <li><span data-i18n="count-ja">count-ja</span><span id="count-ja"></span></li>
+                <li><span data-i18n="count-cm">count-cm</span><span id="count-cm"></span></li>
+                <li><span data-i18n="count-lib">count-lib</span><span id="count-lib"></span></li>
+            </ul>
+
+            <div id="total">
+                <span data-i18n="count-total">count-total</span><span id="count-total"></span>
+            </div>
+        </section>
+
+        <hr />
+
+        <section>
+            <ul id="lang-switch">
+                <li>
+                    <span data-i18n="lang-switch">lang-switch</span>
+                    <ul>
+                        <li><a href="javascript:void(0);" class="lang-switch" data-locale="en">English</a></li>
+                        <li><a href="javascript:void(0);" class="lang-switch" data-locale="zh-hans">中文</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="container">
+        Made with &hearts; by User:Leranjun<br />
+        Using <a href="https://terminalcss.xyz">Terminal.css</a>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery/jquery-3.5.1.min.js"></script>
+    <!-- i18n -->
+    <script src="js/i18n/jquery.i18n.js"></script>
+    <script src="js/i18n/jquery.i18n.messagestore.js"></script>
+    <script src="js/i18n/jquery.i18n.fallbacks.js"></script>
+    <script src="js/i18n/jquery.i18n.language.js"></script>
+    <script src="js/i18n/jquery.i18n.parser.js"></script>
+    <script src="js/i18n/jquery.i18n.emitter.js"></script>
+    <script src="js/i18n/jquery.i18n.emitter.bidi.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

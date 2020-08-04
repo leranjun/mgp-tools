@@ -1,0 +1,29 @@
+{
+  "@metadata": {
+    "authors": [
+      "Leranjun"
+    ],
+    "last-updated": "2020-07-20",
+    "locale": "zh-hans",
+    "message-documentation": "qqq"
+  },
+  "page-title": "萌娘百科日贡献查询工具 | 乐然的工具箱",
+  "title": "萌娘百科日贡献查询工具",
+  "form-title": "查询数据",
+  "start-time": "开始时间",
+  "end-time": "结束时间",
+  "local-time": "本地时区",
+  "username": "用户名",
+  "h": "安全模式",
+  "submit": "确认",
+  "count-zh": "中文站：",
+  "count-en": "英文站：",
+  "count-ja": "日文站：",
+  "count-cm": "共享站：",
+  "count-lib": "文库：",
+  "count-h": "里站：",
+  "count-total": "总贡献：",
+  "loading": "加载中…",
+  "lang-switch": "语言：",
+  "error-timeout": "错误：请求超时。"
+}

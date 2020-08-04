@@ -1,0 +1,29 @@
+{
+  "@metadata": {
+    "authors": [
+      "Leranjun"
+    ]
+  },
+
+
+
+  "page-title": "Title of the page.",
+  "title": "Title of the site.",
+  "form-title": "Title of the query form.",
+  "start-time": "Label for start time.",
+  "end-time": "Label for end time.",
+  "local-time": "Notice that the time input should be in local timezone.",
+  "username": "Label for the username string.",
+  "h": "Label for the checkbox for querying HMoe.",
+  "submit": "Text on the submit button.",
+  "count-zh": "Label for the contribution count in ZhMGP.",
+  "count-en": "Label for the contribution count in EnMGP.",
+  "count-ja": "Label for the contribution count in JaMGP.",
+  "count-cm": "Label for the contribution count in Commons.",
+  "count-lib": "Label for the contribution count in Library.",
+  "count-h": "Label for the contribution count in HMoe.",
+  "count-total": "Label for the total contribution count.",
+  "loading": "Loading text.",
+  "lang-switch": "Label for the language switch.",
+  "error-timeout": "Text when request timed out."
+}

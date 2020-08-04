@@ -1,0 +1,29 @@
+{
+  "@metadata": {
+    "authors": [
+      "Leranjun"
+    ],
+    "last-updated": "2020-07-20",
+    "locale": "en",
+    "message-documentation": "qqq"
+  },
+  "page-title": "MGP Daily Contributions Lookup Tool | Leran's Toolbox",
+  "title": "MGP Daily Contributions Lookup Tool",
+  "form-title": "Query Data",
+  "start-time": "Start Time",
+  "end-time": "End Time",
+  "local-time": "Local Time",
+  "username": "Username",
+  "h": "Safe Mode",
+  "submit": "Submit",
+  "count-zh": "ZhMGP: ",
+  "count-en": "EnMGP: ",
+  "count-ja": "JaMGP: ",
+  "count-cm": "Commons: ",
+  "count-lib": "Library: ",
+  "count-h": "HMoe: ",
+  "count-total": "Total: ",
+  "loading": "Loading...",
+  "lang-switch": "Language: ",
+  "error-timeout": "Error: Request timed out."
+}
