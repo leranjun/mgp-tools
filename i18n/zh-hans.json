@@ -1,0 +1,20 @@
+{
+  "@metadata": {
+    "authors": [
+      "Leranjun"
+    ],
+    "last-updated": "2020-08-04",
+    "locale": "zh-hans",
+    "message-documentation": "qqq"
+  },
+  "page-title": "主页 | 乐然的工具箱",
+  "title": "乐然的工具箱",
+  "category-lookup": "分类:查询",
+  "category-editing": "分类:编辑",
+  "project-requests": "项目:请求",
+  "github-issues": "GitHub Issues",
+  "contribs": "跨站贡献查询",
+  "tracklist": "歌曲列表转&#123;&#123;Tracklist&#125;&#125;",
+  "attach-zero": "年月日补&#123;&#123;0&#125;&#125;",
+  "lang-switch": "语言："
+}

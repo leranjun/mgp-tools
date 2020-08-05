@@ -1,0 +1,20 @@
+{
+  "@metadata": {
+    "authors": [
+      "Leranjun"
+    ],
+    "last-updated": "2020-08-04",
+    "locale": "en",
+    "message-documentation": "qqq"
+  },
+  "page-title": "Home | Leran's Toolbox",
+  "title": "Leran's Toolbox",
+  "category-lookup": "Category:Lookup",
+  "category-editing": "Category:Editing",
+  "project-requests": "Project:Requests",
+  "github-issues": "GitHub Issues",
+  "contribs": "Cross-Site Contributions Lookup",
+  "tracklist": "Track List to &#123;&#123;Tracklist&#125;&#125;",
+  "attach-zero": "Attach &#123;&#123;0&#125;&#125; to Dates",
+  "lang-switch": "Language:"
+}

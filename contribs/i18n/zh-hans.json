@@ -3,12 +3,13 @@
     "authors": [
       "Leranjun"
     ],
-    "last-updated": "2020-07-20",
+    "last-updated": "2020-08-04",
     "locale": "zh-hans",
     "message-documentation": "qqq"
   },
-  "page-title": "萌娘百科日贡献查询工具 | 乐然的工具箱",
-  "title": "萌娘百科日贡献查询工具",
+  "page-title": "跨站贡献查询工具 | 乐然的工具箱",
+  "title": "跨站贡献查询工具",
+  "home": "主页",
   "form-title": "查询数据",
   "start-time": "开始时间",
   "end-time": "结束时间",

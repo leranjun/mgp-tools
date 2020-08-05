@@ -1,0 +1,20 @@
+{
+  "@metadata": {
+    "authors": [
+      "Leranjun"
+    ]
+  },
+
+
+
+  "page-title": "Title of the page.",
+  "title": "Title of the site.",
+  "category-lookup": "Title for lookup-related tools.",
+  "category-editing": "Title for editing-related tools.",
+  "project-requests": "Title for new requests.",
+  "github-issues": "GitHub issues.",
+  "contribs": "Cross-Site Contributions Lookup.",
+  "tracklist": "Track List to {{Tracklist}}.",
+  "attach-zero": "Attach {{0}} to Dates.",
+  "lang-switch": "Label for language switches."
+}

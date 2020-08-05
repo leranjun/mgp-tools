@@ -74,8 +74,9 @@ Translate everything again after locale is changed
 function reTranslate() {
     $("html").i18n(); // Translate again
     $.each(count, function(key, value) {
-        if (value !== -1) {
-            const spanID = "#count-" + key;
+        const spanID = "#count-" + key;
+        $(spanID).i18n();
+        if (key !== "total" && value !== -1) {
             $(spanID).text(value);
         }
     });
@@ -112,7 +113,6 @@ Fetch the contribution list from the APIs.
  */
 function fetchContribList(url, method = 0) {
     const newUrl = addCors(url, method);
-    console.log(newUrl);
     if (newUrl !== "error") {
         return fetch(newUrl)
             .then(response => {
@@ -142,16 +142,27 @@ function leading0(s) {
 Main
  */
 $("#submit").click(function() {
+    // Reset count
+    count = {
+        zh: -1,
+        en: -1,
+        ja: -1,
+        cm: -1,
+        lib: -1,
+        total: 0
+    };
+
     const total = $("#count-total");
     total.text("loading");
     total.data("i18n", "loading");
     total.i18n();
 
     const siteList = $("#site-list");
+    const countH = $("#count-h");
     if (!$("#query-h").prop("checked")) {
         count.h = -1;
         url.h = "https://www.hmoegirl.com/api.php?origin=*";
-        if (!$("#count-h").length) {
+        if (!countH.length) {
             siteList.append('<li><span data-i18n="count-h">count-h</span><span id="count-h" data-i18n="loading">loading</li>');
             siteList.i18n();
         }
@@ -162,7 +173,6 @@ $("#submit").click(function() {
         if (url.hasOwnProperty("h")) {
             delete url.h;
         }
-        const countH = $("#count-h");
         if (countH.length) {
             countH.parent().remove();
         }
@@ -228,12 +238,14 @@ $("#submit").click(function() {
                         }
 
                         const spanID = "#count-" + key;
+                        $(spanID).data("i18n", "");
                         $(spanID).text(count[key]);
                     }
                 })
         ))
-        .then(() =>
-            total.text(count.total)
-        )
+        .then(() => {
+            total.data("i18n", "");
+            total.text(count.total);
+        })
         .catch(console.error);
 });

@@ -9,6 +9,7 @@
 
   "page-title": "Title of the page.",
   "title": "Title of the site.",
+  "home": "Back to home text.",
   "form-title": "Title of the query form.",
   "start-time": "Label for start time.",
   "end-time": "Label for end time.",
@@ -24,6 +25,6 @@
   "count-h": "Label for the contribution count in HMoe.",
   "count-total": "Label for the total contribution count.",
   "loading": "Loading text.",
-  "lang-switch": "Label for the language switch.",
+  "lang-switch": "Label for language switches.",
   "error-timeout": "Text when request timed out."
 }
