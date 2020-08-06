@@ -40,7 +40,7 @@ $(function() {
                     self.css("pointer-events", "auto");
                 });
                 self.fadeIn(100);
-            }, 3000);
+            }, 2000);
         })
     });
 });

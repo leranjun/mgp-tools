@@ -148,6 +148,14 @@ function leading0(s) {
 Main
  */
 $("#submit").click(function() {
+    let ucstart = $("#query-end-time").val();
+    let ucend = $("#query-start-time").val();
+    const ucuser = $("#query-username").val();
+
+    if (!ucstart || !ucend || !ucuser) {
+        return;
+    }
+
     // Reset count
     count = {
         zh: -1,
@@ -185,16 +193,11 @@ $("#submit").click(function() {
     }
 
     // Pre-process date, opposite way
-    let ucstart = $("#query-end-time").val();
-    let ucend = $("#query-start-time").val();
-
     ucstart = ucstart.split(" ");
     ucstart = new Date(ucstart[0] + "T" + ucstart[1]).toISOString();
 
     ucend = ucend.split(" ");
     ucend = new Date(ucend[0] + "T" + ucend[1]).toISOString();
-
-    const ucuser = $("#query-username").val();
 
     const queryString = {
         "action": "query",

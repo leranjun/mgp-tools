@@ -11,10 +11,12 @@
   "title": "Track List to &#123;&#123;Tracklist&#125;&#125; Tool",
   "home": "Home",
   "form-title": "Input Data",
-  "raw": "Raw Data (Title|Length)",
   "slice-top": "Characters to be Removed from Top",
   "process-brackets": "Process Brackets",
   "include-lj": "Include &#123;&#123;lj&#125;&#125; in Titles",
+  "raw": "Raw Data (Title|Length|Composer|Lyricist|Arranger|Singer)",
+  "extra": "Extra Parameters",
+  "clear": "Clear",
   "submit": "Submit",
   "output-placeholder": "Output goes here.",
   "lang-switch": "Language:"

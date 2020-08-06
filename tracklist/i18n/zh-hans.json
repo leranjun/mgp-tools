@@ -11,10 +11,12 @@
   "title": "歌曲列表转&#123;&#123;Tracklist&#125;&#125;工具",
   "home": "主页",
   "form-title": "输入数据",
-  "raw": "原始数据（标题|长度）",
   "slice-top": "掐头字符数",
   "process-brackets": "处理括号",
   "include-lj": "标题中添加&#123;&#123;lj&#125;&#125;",
+  "raw": "原始数据（标题|长度|作曲|作词|编曲|演唱）",
+  "extra": "其他参数",
+  "clear": "清空",
   "submit": "确认",
   "output-placeholder": "输出结果将会显示在这里。",
   "lang-switch": "语言："

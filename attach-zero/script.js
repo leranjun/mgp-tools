@@ -27,7 +27,7 @@ Setup:
 Set placeholder value for textarea
  */
 
-const defVal = `{| class="wikitable"
+const rawVal = `{| class="wikitable"
 |-
 ! 序号 !! 标题 !! 配信日 !! 规格 !! 试听
 |-
@@ -42,11 +42,9 @@ const defVal = `{| class="wikitable"
 |-
 ! 4th
 | '''{{lj|[[琥珀的身体|琥珀の身体]]}}''' || 2019年11月29日 || 音乐配信 || <sm2>File:HIMEHINAhupodeshenti.mp3</sm2>
-|}
-
-是的，我就是有私心（滑稽）`;
+|}`; // 是的，我就是有私心（滑稽）
 const raw = $("#raw");
-raw.val(defVal);
+raw.val(rawVal);
 raw.css("height", raw.prop("scrollHeight") + 3 + "px");
 raw.on("input", function() {
     raw.css("height", "");
@@ -75,12 +73,19 @@ Main
  */
 $("#submit").click(function() {
     let s = raw.val();
+
+    if (!s) {
+        return;
+    }
+
     // s = s.split(/\r?\n/).filter(Boolean);
     s = s.split(/\r?\n/);
 
     let res = [];
 
     $.each(s, function(index, value) {
+        value = value.replace("<", "&lt;").replace(">", "&gt;"); // Special characters
+
         let unp = value.match(/\d\d\d\d年\d?\d月\d?\d日/g);
         if (Array.isArray(unp) && unp.length) {
             $.each(unp, function(i, v) {
@@ -109,4 +114,10 @@ $("#submit").click(function() {
         $("#result").append(value + "<br />");
     });
     $("#result br").last().remove();
+});
+
+$(".clearButton").click(function() {
+    const target = $("#" + $(this).data("target"));
+    target.val("");
+    target.css("height", "54px");
 });

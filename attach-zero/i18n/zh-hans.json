@@ -12,6 +12,7 @@
   "home": "主页",
   "form-title": "输入数据",
   "raw": "原始数据（YYYY年M月D日）",
+  "clear": "清空",
   "format-notice": "不含有此格式日期的行将会被跳过。",
   "submit": "确认",
   "output-placeholder": "输出结果将会显示在这里。",

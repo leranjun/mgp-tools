@@ -27,7 +27,7 @@ Setup:
 Set placeholder value for textarea
  */
 
-const defVal = `01. 約束の血|1:29
+const rawVal = `01. 約束の血|1:29
 02. Int:Existense|0:03
 03. 藍の華|3:46
 04. ヒトガタRock|3:42
@@ -46,12 +46,24 @@ const defVal = `01. 約束の血|1:29
 17. ヒトガタ|3:44
 18. Int:What i am|0:29
 19. My Dear|6:29`;
+const extraVal = `|music_credits = yes
+|lyrics_credits = yes
+|arranger_credits = yes
+
+|all_lyrics = ゴゴ`;
 const raw = $("#raw");
-raw.val(defVal);
+const extra = $("#extra");
+raw.val(rawVal);
 raw.css("height", raw.prop("scrollHeight") + 3 + "px");
 raw.on("input", function() {
     raw.css("height", "");
     raw.css("height", raw.prop("scrollHeight") + 3 + "px");
+});
+extra.val(extraVal);
+extra.css("height", extra.prop("scrollHeight") + 3 + "px");
+extra.on("input", function() {
+    extra.css("height", "");
+    extra.css("height", extra.prop("scrollHeight") + 3 + "px");
 });
 
 /*
@@ -76,39 +88,75 @@ Main
  */
 $("#submit").click(function() {
     let s = raw.val();
+
+    if (!s) {
+        return;
+    }
+
     s = s.split(/\r?\n/).filter(Boolean);
 
     const sliceTop = $("#slice-top").val();
     const brackets = $("#process-brackets").prop("checked"), lj = $("#include-lj").prop("checked");
 
     let res = ["{{tracklist"];
+    res.push(extra.val());
+    res.push("");
 
     $.each(s, function(index, value) {
         if (!value) {
             return;
         }
         index++;
-        value = value.split("|");
-        const length = value[1];
-        value = value[0];
-        value = value.trim().slice(sliceTop).trim();
-        let note = "";
-        if (brackets && value.includes("(")) {
-            note = value.slice(value.indexOf("("));
-            note = note.slice(1).slice(0, -1).trim();
-            value = value.slice(0, value.indexOf("(")).trim();
+
+        let unp = value.split("|");
+        let cur = {
+            title: "",
+            note: "",
+            time: "",
+            music: "",
+            lyrics: "",
+            arranger: "",
+            singer: ""
+        };
+
+        cur.title = unp[0].trim().slice(sliceTop).trim();
+        cur.time = unp[1].trim();
+        if (unp.length > 2) {
+            cur.music = unp[2];
+            cur.lyrics = (unp[3]) ? (unp[3]) : "";
+            cur.arranger = (unp[4]) ? (unp[4]) : "";
+            cur.singer = (unp[5]) ? (unp[4]) : "";
         }
-        if (lj) {
-            value = "{{lj|" + value + "}}";
-            if (note) {
-                note = "{{lj|" + note + "}}";
+        if (brackets) {
+            let del = "";
+            if (cur.title.includes("(")) {
+                del = "(";
+            } else if (cur.title.includes("（")) {
+                del = "（";
+            }
+            if (del) {
+                let t = cur.title.split(del);
+                cur.title = t[0].trim();
+                cur.note = t[1].slice(0, -1).trim();
             }
         }
-        res.push("|title" + index + "=" + value);
-        if (note) {
-            res.push("|note" + index + "=" + note);
+        if (lj) {
+            cur.title = "{{lj|" + cur.title + "}}";
+            if (cur.note) {
+                cur.note = "{{lj|" + cur.note + "}}";
+            }
         }
-        res.push("|length" + index + "=" + length);
+
+        $.each(cur, function(key, value) {
+            if (key !== "time") {
+                if (value) {
+                    res.push("|" + key + index + "=" + value);
+                }
+            } else {
+                res.push("|length" + index + "=" + value);
+            }
+        });
+
         res.push("");
     });
 
@@ -120,4 +168,10 @@ $("#submit").click(function() {
     });
     $("#result br").last().remove();
     result.append("}}");
+});
+
+$(".clearButton").click(function() {
+    const target = $("#" + $(this).data("target"));
+    target.val("");
+    target.css("height", "54px");
 });

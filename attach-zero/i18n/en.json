@@ -12,6 +12,7 @@
   "home": "Home",
   "form-title": "Input Data",
   "raw": "Raw Data (YYYY年M月D日)",
+  "clear": "Clear",
   "format-notice": "Lines that do not contain date in this format will be skipped.",
   "submit": "Submit",
   "output-placeholder": "Output goes here.",
