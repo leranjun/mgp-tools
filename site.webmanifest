@@ -1,0 +1,19 @@
+{
+    "name": "Leran's Toolbox",
+    "short_name": "Leran's Toolbox",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#62c4ff",
+    "background_color": "#62c4ff",
+    "display": "standalone"
+}
