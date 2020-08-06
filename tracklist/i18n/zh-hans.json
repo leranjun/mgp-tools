@@ -3,7 +3,7 @@
     "authors": [
       "Leranjun"
     ],
-    "last-updated": "2020-08-05",
+    "last-updated": "2020-08-06",
     "locale": "zh-hans",
     "message-documentation": "qqq"
   },
@@ -14,7 +14,12 @@
   "slice-top": "掐头字符数",
   "process-brackets": "处理括号",
   "include-lj": "标题中添加&#123;&#123;lj&#125;&#125;",
-  "raw": "原始数据（标题|长度|作曲|作词|编曲|演唱）",
+  "autolink": "Auto-Link",
+  "autolink-off": "手动链接",
+  "autolink-no": "无链接",
+  "autolink-auto": "自动链接",
+  "raw": "原始数据（标题 [| 长度] [| 内链] [| 作曲] [| 作词] [| 编曲] [| 演唱]）",
+  "raw-autolink": "原始数据（标题 [| 长度] [| 作曲] [| 作词] [| 编曲] [| 演唱]）",
   "extra": "其他参数",
   "clear": "清空",
   "submit": "确认",

@@ -27,30 +27,30 @@ Setup:
 Set placeholder value for textarea
  */
 
-const rawVal = `01. 約束の血|1:29
+const rawVal = `01. 約束の血|1:29|约束之血|ゴゴ||大山彻也
 02. Int:Existense|0:03
-03. 藍の華|3:46
-04. ヒトガタRock|3:42
-05. ヒバリ(Laugh-In)|4:21
-06. ライライラビットテイル|4:10
-07. Int:Electron|1:42
-08. 琥珀の身体(Message-In)|4:21
+03. 藍の華|3:46|#同名歌曲|马渕直纯||马渕直纯
+04. ヒトガタRock|3:42|人型Rock|南田健吾||猫舌ロロ+泽头たかし（DORA）
+05. ヒバリ(Laugh-In)|4:21|姬雏鸟|大田原侑树||泽头たかし（DORA）+大山彻也
+06. ライライラビットテイル|4:10|来来兔尾草|秋浦智裕||秋浦智裕
+07. Int:Electron（Introduction from TheAmbroid）|1:42||柴山太朗
+08. 琥珀の身体(Message-In)|4:21|琥珀的身体|柴山太朗&ゴゴ||柴山太朗
 09. Int:Honey|0:34
-10. 溺れるほど愛した花|3:38
-11. 夢景色|5:01
-12. うたかたよいかないで(Message-In)|4:46
+10. 溺れるほど愛した花|3:38|让人为之迷恋的爱之花|南田健吾||南田健吾
+11. 夢景色|5:01|梦中景色|冈本武士||秋浦智裕
+12. うたかたよいかないで(Message-In)|4:46|泡沫啊请不要离去|Motokiyo||Motokiyo
 13. Int:Dream Away|0:03
-14. ララ|4:24
-15. Int:NamidaGanges|0:50
-16. アダムとマダム|3:56
-17. ヒトガタ|3:44
+14. ララ|4:24|LaRa|草野よしひろ||草野よしひろ
+15. Int:NamidaGanges|0:50||南田健吾
+16. アダムとマダム|3:56|亚当和夫人|南田健吾||南田健吾
+17. ヒトガタ|3:44|人型|南田健吾||南田健吾
 18. Int:What i am|0:29
-19. My Dear|6:29`;
-const extraVal = `|music_credits = yes
-|lyrics_credits = yes
-|arranger_credits = yes
+19. My Dear|6:29|亲爱的(HIMEHINA)|キクイケタロウ||秋浦智裕`;
+const extraVal = `|music_credits=yes
+|arranger_credits=yes
 
-|all_lyrics = ゴゴ`;
+|all_singer=HIMEHINA
+|all_lyrics=ゴゴ`;
 const raw = $("#raw");
 const extra = $("#extra");
 raw.val(rawVal);
@@ -65,6 +65,8 @@ extra.on("input", function() {
     extra.css("height", "");
     extra.css("height", extra.prop("scrollHeight") + 3 + "px");
 });
+
+let autolink = "";
 
 /*
 Function:
@@ -86,6 +88,20 @@ function translateAll() {
 /*
 Main
  */
+$("#autolink").on("change", function() {
+    const selector = $("span[data-i18n='raw']");
+    autolink = $("#autolink").val();
+    if (autolink === "off") {
+        selector.text("raw");
+        selector.data("i18n", "raw");
+        selector.i18n();
+    } else {
+        selector.text("raw-autolink");
+        selector.data("i18n", "raw-autolink");
+        selector.i18n();
+    }
+});
+
 $("#submit").click(function() {
     let s = raw.val();
 
@@ -113,6 +129,7 @@ $("#submit").click(function() {
             title: "",
             note: "",
             time: "",
+            link: "",
             music: "",
             lyrics: "",
             arranger: "",
@@ -120,12 +137,18 @@ $("#submit").click(function() {
         };
 
         cur.title = unp[0].trim().slice(sliceTop).trim();
-        cur.time = unp[1].trim();
-        if (unp.length > 2) {
-            cur.music = unp[2];
-            cur.lyrics = (unp[3]) ? (unp[3]) : "";
-            cur.arranger = (unp[4]) ? (unp[4]) : "";
-            cur.singer = (unp[5]) ? (unp[4]) : "";
+        cur.time = (unp[1]) ? (unp[1].trim()) : "";
+        if (autolink === "no") {
+            cur.music = (unp[2]) ? (unp[2].trim()) : "";
+            cur.lyrics = (unp[3]) ? (unp[3].trim()) : "";
+            cur.arranger = (unp[4]) ? (unp[4].trim()) : "";
+            cur.singer = (unp[5]) ? (unp[5].trim()) : "";
+        } else {
+            cur.link = (unp[2]) ? (unp[2].trim()) : "";
+            cur.music = (unp[3]) ? (unp[3].trim()) : "";
+            cur.lyrics = (unp[4]) ? (unp[4].trim()) : "";
+            cur.arranger = (unp[5]) ? (unp[5].trim()) : "";
+            cur.singer = (unp[6]) ? (unp[6].trim()) : "";
         }
         if (brackets) {
             let del = "";
@@ -140,20 +163,26 @@ $("#submit").click(function() {
                 cur.note = t[1].slice(0, -1).trim();
             }
         }
-        if (lj) {
-            cur.title = "{{lj|" + cur.title + "}}";
-            if (cur.note) {
-                cur.note = "{{lj|" + cur.note + "}}";
-            }
+
+        if (autolink === "auto") {
+            cur.link = cur.title;
         }
 
         $.each(cur, function(key, value) {
-            if (key !== "time") {
+            if (key === "time") {
+                res.push("|length" + index + "=" + value);
+            } else if (key !== "link") {
                 if (value) {
+                    if (lj) {
+                        value = "{{lj|" + value + "}}";
+                    }
+                    if (key === "title") {
+                        if (cur.link) {
+                            value = "[[" + cur.link + "|" + value + "]]";
+                        }
+                    }
                     res.push("|" + key + index + "=" + value);
                 }
-            } else {
-                res.push("|length" + index + "=" + value);
             }
         });
 
