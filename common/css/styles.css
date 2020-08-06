@@ -27,6 +27,7 @@
 
 footer {
     padding: calc(var(--global-space) * 2) !important;
+    margin-top: calc(var(--global-space) * 2) !important;
     border: 1px dashed var(--secondary-color);
 }
 

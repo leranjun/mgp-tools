@@ -27,10 +27,16 @@ $(function() {
         'en': 'i18n/en.json',
         'zh-hans': 'i18n/zh-hans.json'
     }).done(function() {
-        $("html").i18n(); // Start translation
+        const l = Cookies.get("locale");
+        if (l) {
+            $.i18n().locale = l;
+        }
+        translateAll(); // Start translation
         $(".lang-switch").click(function() {
-            $.i18n().locale = $(this).data("locale");
-            reTranslate(); // Translate again
+            const l = $(this).data("locale");
+            Cookies.set("locale", l);
+            $.i18n().locale = l;
+            translateAll(); // Translate again
         });
     });
 });
@@ -69,10 +75,10 @@ let url = {
 
 /*
 Function:
-Translate everything again after locale is changed
+Translate everything
  */
-function reTranslate() {
-    $("html").i18n(); // Translate again
+function translateAll() {
+    $("html").i18n();
     $.each(count, function(key, value) {
         const spanID = "#count-" + key;
         $(spanID).i18n();

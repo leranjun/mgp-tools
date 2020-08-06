@@ -3,7 +3,7 @@
     "authors": [
       "Leranjun"
     ],
-    "last-updated": "2020-08-04",
+    "last-updated": "2020-08-05",
     "locale": "en",
     "message-documentation": "qqq"
   },
@@ -13,9 +13,10 @@
   "form-title": "Query Data",
   "start-time": "Start Time",
   "end-time": "End Time",
-  "local-time": "Local Time",
+  "local-time": " (YYYY-MM-DD hh:mm:ss Local Time)",
   "username": "Username",
   "h": "Safe Mode",
+  "limit-notice": "Note: Due to API limitations, no more than 500 entries can be retrieved from each site.",
   "submit": "Submit",
   "count-zh": "ZhMGP: ",
   "count-en": "EnMGP: ",

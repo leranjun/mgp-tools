@@ -3,7 +3,7 @@
     "authors": [
       "Leranjun"
     ],
-    "last-updated": "2020-08-04",
+    "last-updated": "2020-08-05",
     "locale": "zh-hans",
     "message-documentation": "qqq"
   },
@@ -13,9 +13,10 @@
   "form-title": "查询数据",
   "start-time": "开始时间",
   "end-time": "结束时间",
-  "local-time": "本地时区",
+  "local-time": "（YYYY-MM-DD hh:mm:ss 本地时区）",
   "username": "用户名",
   "h": "安全模式",
+  "limit-notice": "注：由于API限制，每个站点仅可查询少于500条记录。",
   "submit": "确认",
   "count-zh": "中文站：",
   "count-en": "英文站：",

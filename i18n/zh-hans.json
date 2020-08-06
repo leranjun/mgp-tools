@@ -3,7 +3,7 @@
     "authors": [
       "Leranjun"
     ],
-    "last-updated": "2020-08-04",
+    "last-updated": "2020-08-06",
     "locale": "zh-hans",
     "message-documentation": "qqq"
   },
@@ -16,5 +16,8 @@
   "contribs": "跨站贡献查询",
   "tracklist": "歌曲列表转&#123;&#123;Tracklist&#125;&#125;",
   "attach-zero": "年月日补&#123;&#123;0&#125;&#125;",
-  "lang-switch": "语言："
+  "lang-switch": "语言：",
+  "cookie-notice": "本站使用Cookies存储语言信息。",
+  "remove-cookies": "删除Cookies",
+  "done": "完成！"
 }

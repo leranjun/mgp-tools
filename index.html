@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title data-i18n="page-title">Home | Leran's Toolbox</title>
+    <noscript><meta http-equiv="refresh" content="0; url=noscript.html" /></noscript>
     <link rel="stylesheet" href="common/css/styles.css" />
 </head>
 <body class="terminal">
@@ -61,7 +62,8 @@
 
     <footer class="container">
         Made with &hearts; by User:Leranjun<br />
-        Using <a href="https://terminalcss.xyz">Terminal.css</a>
+        Using <a href="https://terminalcss.xyz">Terminal.css</a><br />
+        <span data-i18n="cookie-notice">cookie-notice</span><a href="javascript:void(0);" id="removeCookies" data-i18n="remove-cookies">remove-cookies</a>
     </footer>
 
     <!-- jQuery -->
@@ -74,6 +76,8 @@
     <script src="common/js/i18n/jquery.i18n.parser.js"></script>
     <script src="common/js/i18n/jquery.i18n.emitter.js"></script>
     <script src="common/js/i18n/jquery.i18n.emitter.bidi.js"></script>
+    <!-- JS Cookie -->
+    <script src="common/js/js.cookie-2.2.1.min.js"></script>
 
     <script src="script.js"></script>
 </body>
