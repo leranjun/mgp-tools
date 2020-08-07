@@ -12,12 +12,12 @@ $(function() {
         if (l) {
             $.i18n().locale = l;
         }
-        translateAll(); // Start translation
+        $("html").i18n(); // Start translation
         $(".lang-switch").click(function() {
             const l = $(this).data("locale");
             Cookies.set("locale", l);
             $.i18n().locale = l;
-            translateAll(); // Translate again
+            $("html").i18n(); // Translate again
         });
     });
 });
@@ -67,23 +67,6 @@ extra.on("input", function() {
 });
 
 let autolink = "";
-
-/*
-Function:
-Translate everything
- */
-function translateAll() {
-    $("html").i18n();
-    $("*").each(function() {
-        const self = $(this);
-        if (self.data("i18n")) {
-            const txt = $(this).text();
-            if (txt.includes("&#")) {
-                $(this).html(txt);
-            }
-        }
-    });
-}
 
 /*
 Main
